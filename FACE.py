@@ -9,8 +9,8 @@ def Face_recog_code():
     import json
 
     # Your Twilio account SID and Auth Token
-    account_sid = 'ACf190a14960edff87d8282418b0dd58e5'  # Replace with your Account SID
-    auth_token = '83a342012a42426b4704283ef5bfc8c7'    # Replace with your Auth Token
+    account_sid = 'TWILIO_SID'  # Replace with your Account SID
+    auth_token = 'TWILIO_AUTH_TOKEN'    # Replace with your Auth Token
 
     client = Client(account_sid, auth_token)
     warnings.filterwarnings("ignore")
@@ -26,7 +26,7 @@ def Face_recog_code():
 
     # Example: Load a known face
 
-    image_path = "E:\\Mohit\\Camera\\IMG_20230204_205849.jpg"  # Use double backslashes
+    image_path = "E:\\Camera\\IMG.jpg"  # Use double backslashes
 
     # Load an image file and learn how to recognize it.
     image_of_person = FACE.load_image_file(image_path)  # Use double backslashes
@@ -34,7 +34,7 @@ def Face_recog_code():
 
     # Add the encoding and name to the lists
     known_face_encodings.append(face_encoding)
-    known_face_names.append("Mohit Soni")
+    known_face_names.append("criminal_name")
 
     # Start video capture
     cap = cv2.VideoCapture(0)
@@ -87,8 +87,8 @@ def Face_recog_code():
 
                         message = client.messages.create(
                             body=f"Open this link Quickly : {link_to_send}",
-                            from_='+17628883013',  # Replace with your Twilio number
-                            to='+917389662355'      # Replace with the recipient's phone number
+                            from_='twilio_no',  # Replace with your Twilio number
+                            to='receiver_no'      # Replace with the recipient's phone number
                         )
                         
                         print(f"Message sent with SID: {message.sid}")  # Print the unique Message SID
